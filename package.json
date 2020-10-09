@@ -1,0 +1,27 @@
+{
+  "name": "ethlagos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "n": "^6.7.0",
+    "bignumber.js": "^9.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josefophe/ETHLagos1.git"
+  },
+  "author": "josefophe@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josefophe/ETHLagos1/issues"
+  },
+  "homepage": "https://github.com/josefophe/ETHLagos1#readme"
+}
