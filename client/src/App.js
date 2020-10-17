@@ -9,7 +9,9 @@ import ipfs from './ipfs';
 import "./App.css";
 
 class App extends Component {
-  state = { storageValue: 0,
+	constructor(props){
+		super(props)
+		this.state = { //storageValue: 0,
 	  web3: null,
 	  accounts: null,
 	  contract: null,
@@ -77,6 +79,24 @@ class App extends Component {
     const buffer =  await Buffer.from(reader.result);
     this.setState({buffer});
   };
+
+  // Function for sending the buffer to the
+  // ipfs node and show the ipfs hash on the UI
+  onIPFSSubmit =  async(event) => {
+    event.preventDefault();
+    await ipfs.add(this.state.buffer, (err, ipfsHash) => {
+      console.log(err, ipfsHash);
+      this.setState({ipfsHash:ipfsHash[0].hash});
+    })
+  };
+
+  setEventListeners = () => {
+    this.state.contract.inboxResponse()
+      .on('data', result => {
+        this.setState({receivedIPFS:result.args[0]});
+      });
+  }
+
 
   handleChangeAddress = (event) => {
     this.setState({formAddress: event.target.value});
